@@ -7,7 +7,7 @@
       <e p="appsettings.json" t="Include" />
       <e p="bin" t="ExcludeRecursive" />
       <e p="Controllers" t="Include">
-        <e p="WeatherForecastController.cs" t="Include" />
+        <e p="TaskTracketController.cs" t="Include" />
       </e>
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
@@ -24,7 +24,6 @@
       <e p="Startup.cs" t="Include" />
       <e p="TaskTracker.WebApi.csproj" t="IncludeRecursive" />
       <e p="TaskTracker.WebApi.sln" t="IncludeFlat" />
-      <e p="WeatherForecast.cs" t="Include" />
     </e>
     <e p="C:\Users\user\.Rider2019.3\config\consoles\db" t="IncludeRecursive" />
     <e p="C:\Users\user\.Rider2019.3\config\extensions" t="IncludeRecursive" />
