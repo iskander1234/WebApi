@@ -6,8 +6,19 @@
       <e p="appsettings.Development.json" t="Include" />
       <e p="appsettings.json" t="Include" />
       <e p="bin" t="ExcludeRecursive" />
+      <e p="Context" t="Include">
+        <e p="CRUDContext.cs" t="Include" />
+      </e>
       <e p="Controllers" t="Include">
-        <e p="TaskTracketController.cs" t="Include" />
+        <e p="TaskTrackerController.cs" t="Include" />
+      </e>
+      <e p="Migrations" t="Include">
+        <e p="20220221155927_Initial.cs" t="Include" />
+        <e p="20220221155927_Initial.Designer.cs" t="Include" />
+        <e p="CRUDContextModelSnapshot.cs" t="Include" />
+      </e>
+      <e p="Model" t="Include">
+        <e p="Task.cs" t="Include" />
       </e>
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">

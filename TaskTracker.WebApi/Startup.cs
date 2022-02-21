@@ -6,10 +6,12 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using TaskTracker.WebApi.Context;
 
 namespace TaskTracker.WebApi
 {
@@ -25,8 +27,12 @@ namespace TaskTracker.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
-            
+            services.AddMvc();
+            //Connection PGAdmin 
+            string connection = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<CRUDContext>(options => options.UseNpgsql(connection));
+
+            //Register swagger 
             services.AddSwaggerDocument(settings =>
             {
                 settings.Title = "TaskTracker";
