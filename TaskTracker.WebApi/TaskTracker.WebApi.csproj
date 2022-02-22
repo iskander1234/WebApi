@@ -10,5 +10,11 @@
       <PackageReference Include="NSwag.AspNetCore" Version="13.15.9" />
     </ItemGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="TaskTracker.WebApi.Tests\obj\project.assets.json" />
+      <_ContentIncludedByDefault Remove="TaskTracker.WebApi.Tests\obj\project.packagespec.json" />
+      <_ContentIncludedByDefault Remove="TaskTracker.WebApi.Tests\obj\TaskTracker.WebApi.Tests.csproj.nuget.dgspec.json" />
+    </ItemGroup>
+
 
 </Project>

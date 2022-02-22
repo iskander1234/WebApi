@@ -12,6 +12,7 @@ namespace TaskTracker.WebApi.Controllers
     public class TaskTrackerController : Controller
     {
         private readonly CRUDContext _db;
+
         public TaskTrackerController(CRUDContext db)
         {
             _db = db;
@@ -72,6 +73,7 @@ namespace TaskTracker.WebApi.Controllers
             else
             {
                 task.Status = Status.Active;
+                task.Priority = Priority.InProgress;
                 task.ActiveDate = DateTime.Now;
                 _db.Tasks.Update(task);
                 _db.SaveChanges();
@@ -89,6 +91,7 @@ namespace TaskTracker.WebApi.Controllers
             else
             {
                 task.Status = Status.Completed;
+                task.Priority = Priority.Done;
                 task.CompletedDate = DateTime.Now;
                 _db.Tasks.Update(task);
                 _db.SaveChanges();
@@ -96,37 +99,37 @@ namespace TaskTracker.WebApi.Controllers
             return task;
         }
         
-        // Enum InProgress Task priority (int) 
-        [HttpPost("InProgress/{id}")]
-        public Task InProgress(int id)
-        {
-            var task = _db.Tasks.FirstOrDefault(t => t.Id == id);
-            if (task is null)
-                return null;
-            else
-            {
-                task.Priority = Priority.InProgress;
-                _db.Tasks.Update(task);
-                _db.SaveChanges();
-            }
-
-            return task;
-        }
-        
-        // Enum Done Task priority (int) 
-        [HttpPost("Done/{id}")]
-        public Task Done(int id)
-        {
-            var task = _db.Tasks.FirstOrDefault(t => t.Id == id);
-            if (task is null)
-                return null;
-            else
-            {
-                task.Priority = Priority.Done;
-                _db.Tasks.Update(task);
-                _db.SaveChanges();
-            }
-            return task;
-        }
+        // // Enum InProgress Task priority (int) 
+        // [HttpPost("InProgress/{id}")]
+        // public Task InProgress(int id)
+        // {
+        //     var task = _db.Tasks.FirstOrDefault(t => t.Id == id);
+        //     if (task is null)
+        //         return null;
+        //     else
+        //     {
+        //         task.Priority = Priority.InProgress;
+        //         _db.Tasks.Update(task);
+        //         _db.SaveChanges();
+        //     }
+        //
+        //     return task;
+        // }
+        //
+        // // Enum Done Task priority (int) 
+        // [HttpPost("Done/{id}")]
+        // public Task Done(int id)
+        // {
+        //     var task = _db.Tasks.FirstOrDefault(t => t.Id == id);
+        //     if (task is null)
+        //         return null;
+        //     else
+        //     {
+        //         task.Priority = Priority.Done;
+        //         _db.Tasks.Update(task);
+        //         _db.SaveChanges();
+        //     }
+        //     return task;
+        // }
     }
 }
